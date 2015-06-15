@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--update title-->
+  <title>Daniel Stanojevic - Enumerable methods</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+</head>
+
+<body>
+  <div>
+  <h1>Daniel Stanojevic</h1>
+  <div class="navbar">
+    <a href="http://danielstanojevic.github.io">HOME</a>
+    <a href="http://danielstanojevic.github.io/projects.html">PROJECTS</a>
+    <a href="http://danielstanojevic.github.io/about.html">ABOUT ME</a>
+    <a href="http://danielstanojevic.github.io/blog/index.html">BLOG</a>
+  </div>
+  <img src="https://avatars3.githubusercontent.com/u/2170919?v=3&s=40" height="100px" width="100px"/>
+  <main>
+  <h1>Technical Blog</h1>
+  <h2>Enumerable Methods</h2>
+  <h4>June 14th, 2015</h4>
+
+  <section>
+    <p>
+      Let's talk about the enumerable method map.  It's useful if we need to do something to each element in the array.  An example would be if we wanted to add a dollar to the price of every product we sell on our site because of a sudden market price increase.
+
+      According to the docs, map: Returns a new array with the results of running block once for every element in enum.  If no block is given, an enumerator is returned instead.
+      As seen in the following code, we can use map to perform a block function on each element in the array.  It's nondestructive as illustrated below.<br>
+      <code>
+        array = [1,2,3,4,5,6,7,8,9]
+        >> array = [1,2,3,4,5,6,7,8,9]
+        [
+            [0] 1,
+            [1] 2,
+            [2] 3,
+            [3] 4,
+            [4] 5,
+            [5] 6,
+            [6] 7,
+            [7] 8,
+            [8] 9
+        ]
+        >> array.map { |i| i+3 }
+        [
+            [0] 4,
+            [1] 5,
+            [2] 6,
+            [3] 7,
+            [4] 8,
+            [5] 9,
+            [6] 10,
+            [7] 11,
+            [8] 12
+        ]
+        >> print array
+        [1, 2, 3, 4, 5, 6, 7, 8, 9]nil
+        >>
+      </code>
+    </p>
+  </section>
+</main>
+  <div id="social"><a href="#">Twitter</a><a href="#">Github</a></div>
+  <footer id="footer">Copyright 2015 Daniel Stanojevic</footer>
+</div>
+  </body>
+</html>
