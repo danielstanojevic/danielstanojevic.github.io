@@ -2,7 +2,7 @@
 <html>
 <head>
   <!--update title-->
-  <title>Daniel Stanojevic - Enumerable methods</title>
+  <title>Daniel Stanojevic - Ruby classes</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
 </head>
@@ -19,45 +19,14 @@
   <img src="https://avatars3.githubusercontent.com/u/2170919?v=3&s=40" height="100px" width="100px"/>
   <main>
   <h1>Technical Blog</h1>
-  <h2>Enumerable Methods</h2>
-  <h4>June 14th, 2015</h4>
+  <h2>Ruby classes</h2>
+  <h4>June 21st, 2015</h4>
 
   <section>
     <p>
-      Let's talk about the enumerable method map.  It's useful if we need to do something to each element in the array.  An example would be if we wanted to add a dollar to the price of every product we sell on our site because of a sudden market price increase.
+    Classes and objects are quite powerful data structures used to model real world objects in our computer programs.
 
-      According to the docs, map: Returns a new array with the results of running block once for every element in enum.  If no block is given, an enumerator is returned instead.
-      As seen in the following code, we can use map to perform a block function on each element in the array.  It's nondestructive as illustrated below.<br>
-      <code>
-        array = [1,2,3,4,5,6,7,8,9]
-        >> array = [1,2,3,4,5,6,7,8,9]
-        [
-            [0] 1,
-            [1] 2,
-            [2] 3,
-            [3] 4,
-            [4] 5,
-            [5] 6,
-            [6] 7,
-            [7] 8,
-            [8] 9
-        ]
-        >> array.map { |i| i+3 }
-        [
-            [0] 4,
-            [1] 5,
-            [2] 6,
-            [3] 7,
-            [4] 8,
-            [5] 9,
-            [6] 10,
-            [7] 11,
-            [8] 12
-        ]
-        >> print array
-        [1, 2, 3, 4, 5, 6, 7, 8, 9]nil
-        >>
-      </code>
+    An object is a particular instance of a class.  For example, Lassie is an object in the class Dog.  Fido would be another object in the class Dog.  Lassie's bark method may result in "Woof!" while Fido's bark might result in "Yelp!".
     </p>
   </section>
 </main>
