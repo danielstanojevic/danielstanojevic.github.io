@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--update title-->
+  <title>Daniel Stanojevic - OOP concepts</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+</head>
+
+<body>
+  <div>
+  <h1>Daniel Stanojevic</h1>
+  <div class="navbar">
+    <a href="http://danielstanojevic.github.io">HOME</a>
+    <a href="http://danielstanojevic.github.io/projects.html">PROJECTS</a>
+    <a href="http://danielstanojevic.github.io/about.html">ABOUT ME</a>
+    <a href="http://danielstanojevic.github.io/blog/index.html">BLOG</a>
+  </div>
+  <img src="https://avatars3.githubusercontent.com/u/2170919?v=3&s=40" height="100px" width="100px"/>
+  <main>
+  <h1>Technical Blog</h1>
+  <h2>OOP Concepts</h2>
+  <h4>June 26th, 2015</h4>
+
+  <section>
+    <p>
+    Today we'll discuss variable scope in Ruby.
+
+    What kinds of variables does Ruby support?
+    Where are they accessible?
+    When would you use them and what makes them different?
+
+    I believe the following article taken from techotopia.com sums it up quite nicely:
+    What is variable scope?
+    <p>Scope defines where in a program a variable is accessible. Ruby has four types of variable scope, <i>local</i>, <i>global</i>, <i>instance</i> and <i>class</i>. In addition, Ruby has one constant type. Each variable type is declared by using a special character at the start of the variable name as outlined in the following table.
+    </p>
+    <table border="1" cellspacing="0">
+    <tr style="background:#efefef;">
+    <th>Name Begins With<th>Variable Scope</th>
+    <tr><td><code>$</code> </td><td>A global variable </td></tr>
+    <tr><td>
+    <code>@</code> </td><td> An instance variable </td></tr>
+    <tr><td>
+    <code>[a-z]</code> or <code>_</code> </td><td>A local variable </td></tr>
+    <tr><td>
+    <code>[A-Z]</code> </td><td>A constant</td></tr>
+    <tr><td>
+    <code>@@</code></td><td>A class variable</td></tr></table>
+    <p>In addition, Ruby has two <i>pseudo-variables</i> which cannot be assigned values. These are <i>nil</i> which is assigned to uninitialized variables and <i>self</i> which refers to the currently executing object. In the remainder of this chapter we will look at each of these variable scopes in turn.
+    </p>
+    <h2>Detecting the Scope of a Ruby Variable</h2>
+    <p>Obviously, you can tell the scope of a variable by looking at the name. Sometimes, however, you need to find out the scope programmatically. A useful technique to find out the scope of a variable is to use the <i>defined?</i> method. <i>defined?</i> will return the scope of the variable referenced, or <i>nil</i> if the variable is not defined in the current context:
+    </p>
+    <pre>
+    x = 10
+    =&gt; 10
+    defined? x
+    =&gt; &quot;local-variable&quot;
+
+    $x = 10
+    =&gt; 10
+    defined? $x
+    =&gt; &quot;global-variable&quot;
+    </pre>
+    <h2>Ruby Local Variables</h2>
+    <p>Local variables are local to the code construct in which they are declared. For example, a local variable declared in a method or within a loop cannot be accessed outside of that loop or method. Local variable names must begin with either an underscore or a lower case letter. For example:
+    </p>
+    <pre>
+    loopcounter = 10
+    _LoopCounter = 20
+    </pre>
+    <a name="Ruby_Global_Variables"></a><h2><span class="editsection">[<a href="/index.php?title=Ruby_Variable_Scope&amp;action=edit&amp;section=4" title="Edit section: Ruby Global Variables">edit</a>]</span> <span class="mw-headline"> Ruby Global Variables </span></h2>
+    <p>Global variables in Ruby are accessible from anywhere in the Ruby program, regardless of where they are declared. Global variable names are prefixed with a dollar sign ($). For example:
+    </p>
+    <pre>
+    $welcome = &quot;Welcome to Ruby Essentials&quot;
+    </pre>
+    <p>Use of global variables is strongly discouraged. The problem with global variables is that, not only are they visible anywhere in the code for a program, they can also be changed from anywhere in the application. This can make tracking bugs difficult.
+    </p><p>It is useful to know, however, that a number of pre-defined global variables are available to you as a Ruby developer to obtain information about the Ruby environment. A brief summary of each of these variables is contained in the following table.
+    </p>
+    <table border="1" cellspacing="0">
+    <tr style="background:#efefef;">
+    <th>Variable Name<th>Variable Value</th>
+    <tr><td>
+    <code>$@</code> </td><td> The location of latest error </td></tr>
+    <tr><td>
+    <code>$_</code> </td><td> The string last read by <code>gets</code> </td></tr>
+    <tr><td>
+    <code>$.</code> </td><td> The line <em>number</em> last read by interpreter </td></tr>
+    <tr><td>
+    <code>$&amp;</code> </td><td> The string last matched by regexp </td></tr>
+    <tr><td>
+    <code>$~</code> </td><td> The last regexp match, as an array of subexpressions </td></tr>
+    <tr><td>
+    <code>$</code><em>n</em> </td><td> The <em>nth</em> subexpression in the last match (same as <code>$~[</code><em>n</em><code>]</code>) </td></tr>
+    <tr><td>
+    <code>$=</code> </td><td> The case-insensitivity flag </td></tr>
+    <tr><td>
+    <code>$/</code> </td><td> The input record separator </td></tr>
+    <tr><td>
+    <code>$\</code> </td><td> The output record separator </td></tr>
+    <tr><td>
+    <code>$0</code> </td><td> The name of the ruby script file currently executing</td></tr>
+    <tr><td>
+    <code>$*</code> </td><td> The command line arguments used to invoke the script</td></tr>
+    <tr><td>
+    <code>$$</code> </td><td> The Ruby interpreter's process ID </td></tr>
+    <tr><td>
+    <code>$?</code> </td><td> The exit status of last executed child process</td></tr></table>
+    <p>For example we can execute the <i>gets</i> method to take input from the keyboard, and then reference the <i>$_</i> variable to retrieve the value entered:
+    </p>
+    <pre>
+    irb(main):005:0&gt; gets
+    hello
+    =&gt; &quot;hello\n&quot;
+    irb(main):006:0&gt; $_
+    =&gt; &quot;hello\n&quot;
+    </pre>
+    <p>Alternatively we could find the process ID of the Ruby interpreter:
+    </p>
+    <pre>
+    irb(main):007:0&gt; $$
+    =&gt; 17403
+    </pre>
+    <h2>Ruby Class Variables</h2>
+    <p>A class variable is a variable that is shared amongst all instances of a class. This means that only one variable value exists for all objects instantiated from this class. This means that if one object instance changes the value of the variable, that new value will essentially change for all other object instances.
+    </p><p>Another way of thinking of thinking of class variables is as global variables within the context of a single class.
+    </p><p>Class variables are declared by prefixing the variable name with two @ characters (@@). Class variables must be initialized at creation time. For example:
+    </p>
+    <pre>
+    @@total = 0
+    </pre>
+    <h2>Ruby Instance Variables</h2>
+    <p>Instance variables are similar to Class variables except that their values are local to specific instances of an object. For example if a class contains an instance variable called <i>@total</i>, if one instance of the object changes the current value of <i>@total</i> the change is local to only the object that made the change. Other objects of the same class have their own local copies of the variable which are independent of changes made in any other objects.
+    </p><p>Instance variables are declared in Ruby by prefixing the variable name with a single @ sign:
+    </p>
+    <pre>
+    @total = 10
+    </pre>
+    <h2>Ruby Constant Scope</h2>
+    <p>Ruby constants are values which, once assigned a value, should not be changed. I say should because Ruby differs from most programming languages in that it allows a constant value to be changed after it has been declared, although the interpreter will protest slightly with a warning message.
+    </p><p>Constants declared within a class or module are available anywhere within the context of that class or module. Constants declared outside of a class or module are assigned global scope.
+    </p><p><br />
+    </p>
+
+    </p>
+  </section>
+</main>
+  <div id="social"><a href="#">Twitter</a><a href="#">Github</a></div>
+  <footer id="footer">Copyright 2015 Daniel Stanojevic</footer>
+</div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+.line {
+    height: 2px;
+    background-color: gray;
+    width: 100%;
+}
+#rubybox{
+
+    background-color: pink;
+    width: 50%;
+    height: 200px;
+    display: inline;
+
+
+}
+header{
+    text-align: center;
+}
+
+#jsbox{
+    background-color: yellow;
+    height: 200px;
+    width: 50%;
+    display: inline;
+}
+#htmlbox{
+    height: 200px;
+    width: 50%;
+    display: inline;
+   background-color: turquoise;
+}
+#css{
+    height: 200px;
+    width: 50%;
+    display: inline;
+    background-color: orange;
+}
